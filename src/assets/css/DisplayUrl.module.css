@@ -1,0 +1,12 @@
+.displaySection{
+    display: grid;
+    place-items: center;
+    padding-bottom: 10px;
+}
+.urlSection{
+    border-radius: 30px;
+    background: #e0e0e0; 
+    padding: 2em;
+    text-align: center;
+    font-family: monospace;
+}

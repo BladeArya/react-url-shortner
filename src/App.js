@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
+import shrtcode from "./api/shrtcode";
+import DisplayUrl from './components/DisplayUrl';
 import './App.css';
 
+import Navigation from './components/Navigation';
+import UrlSubmit from './components/UrlSubmit';
+import Footer from './components/Footer';
 function App() {
+  const [shortURL, setShortURL] = useState("");
+
+  const getLink = async (link,setIsLoading) => {
+    await shrtcode
+      .get(`shorten?url=${link}`)
+      .then((response) => {
+        setShortURL(response.data.result.full_short_link);
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        setIsLoading(false)
+        // console.error(error);
+        alert(error)
+      });
+  };
+  const getLinkHandler = (link, setIsLoading) => {
+    getLink(link, setIsLoading);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation/>
+      <UrlSubmit getUrlLink={getLinkHandler} setShortURL={setShortURL} shortURL={shortURL}/>
+      {shortURL && <DisplayUrl shortURL={shortURL}/>}
+      <Footer/>
     </div>
   );
 }
