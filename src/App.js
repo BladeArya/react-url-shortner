@@ -6,6 +6,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import UrlSubmit from './components/UrlSubmit';
 import Footer from './components/Footer';
+
 function App() {
   const [shortURL, setShortURL] = useState("");
 
@@ -18,19 +19,20 @@ function App() {
       })
       .catch((error) => {
         setIsLoading(false)
-        // console.error(error);
         alert(error)
       });
   };
   const getLinkHandler = (link, setIsLoading) => {
     getLink(link, setIsLoading);
+
   };
 
   return (
     <div className="App">
       <Navigation/>
       <UrlSubmit getUrlLink={getLinkHandler} setShortURL={setShortURL} shortURL={shortURL}/>
-      {shortURL && <DisplayUrl shortURL={shortURL}/>}
+      {/*shortURL && <DisplayUrl shortURL={shortURL}/>*/}
+      <DisplayUrl shortURL={shortURL}/>
       <Footer/>
     </div>
   );

@@ -11,8 +11,6 @@ const FooterContainer = styled.div`
    width: 100% !important;
    height: 50px !important ;
    padding-top:10px;
-   color:#ffff;
-   background:black;
    display:flex;
    justify-content:center;
    align-items:center;
@@ -26,7 +24,7 @@ class Footer extends Component {
         <Link
             underline="none"
             target="_blank"
-            href="https://github.com/"
+            href="https://github.com/BladeArya/react-url-shortner"
             >
             <GitHubIcon/>
         </Link>

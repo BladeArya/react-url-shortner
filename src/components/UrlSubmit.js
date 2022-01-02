@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 
-import { Grid, TextField, LinearProgress } from "@mui/material";
+import { Grid, TextField, LinearProgress} from "@mui/material";
 
 import styles from "../assets/css/UrlSubmit.module.css";
 
+import Notification from "./Notification";
 
 function UrlSubmit(props) {
   const [enteredURL, setEnteredURL] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-
-
+  const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
+  
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({ show, type, msg });
+  };
 
   const HTTP_URL_VALIDATOR_REGEX =
     /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
@@ -26,10 +30,11 @@ function UrlSubmit(props) {
       setError(false);
       props.getUrlLink(enteredURL, setIsLoading);
       setIsLoading(!isLoading);
+      
     } else {
       setError(true);
-      console.log(enteredURL + " isnt correct");
       setEnteredURL("");
+      showAlert(true, 'error', enteredURL+' is not correct url')
     }
   };
 
@@ -53,7 +58,7 @@ function UrlSubmit(props) {
             error={error}
             fullWidth
             style={{ marginBottom: "20px" }}
-            label="Link"
+            label="Enter your long url https://........."
             variant="outlined"
             type="text"
             value={enteredURL}
@@ -62,11 +67,6 @@ function UrlSubmit(props) {
           />
         </Grid>
         <Grid item>
-          {/* {!isLoading && props.shortURL (
-            <button type="submit" className={styles.formButton}>
-              Short it !
-            </button>
-          )} */}
           {!isLoading && !props.shortURL && (
               <button type="submit" className={styles.formButton}>
                   Short it!
@@ -78,7 +78,9 @@ function UrlSubmit(props) {
               </button>
           )}
           {isLoading && <LinearProgress />}
-
+          <br/>
+          <br/>
+          {alert.show && <Notification {...alert} removeAlert={showAlert} />} 
         </Grid>
       </form>
     </Grid>

@@ -1,5 +1,7 @@
+
 .App{
   height: 98.6vh;
-  background: url('./assets/images/bg.svg') no-repeat fixed center;
-  background-size: cover;
+  /* background: url('./assets/images/bg.svg') no-repeat fixed center;
+  background-size: cover; */
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }

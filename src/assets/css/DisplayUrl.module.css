@@ -1,12 +1,17 @@
 .displaySection{
-    display: grid;
-    place-items: center;
-    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.displayurl{
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1rem;
 }
 .urlSection{
-    border-radius: 30px;
-    background: #e0e0e0; 
     padding: 2em;
     text-align: center;
     font-family: monospace;
+    display: flex;
+    margin-top: 5px;
 }
