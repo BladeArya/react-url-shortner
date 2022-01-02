@@ -1,5 +1,10 @@
 # React Url Shortner
 This is a web application to short the long urls show the urls will easy to share.
+
+
+https://user-images.githubusercontent.com/48612930/147870444-22ea4f61-45c2-49a2-a47c-705193929b92.mp4
+
+
 ## Packages Used
 - material-ui
     `yarn add @mui/material @emotion/react @emotion/styled`
@@ -7,9 +12,6 @@ This is a web application to short the long urls show the urls will easy to shar
 `yarn add axios`
 ## Screenshots
 - ##### Desktop View
-
-![Screenshot (32)](https://user-images.githubusercontent.com/48612930/145623825-a528df81-7d14-4669-a0cc-e98c44c03e5b.png)
-
+![Screenshot (44)](https://user-images.githubusercontent.com/48612930/147870430-d7f3e544-ce58-4d7d-8f6a-25eacaa83dfc.png)
 - ##### Mobile View
-
-![Screenshot 2021-12-10 234721](https://user-images.githubusercontent.com/48612930/145623939-bfafe384-84f1-4d66-aed5-0873e9b6efc4.jpg)
+![Screenshot (45)](https://user-images.githubusercontent.com/48612930/147870437-8f8b336c-7d33-47cd-be2c-ec8f52011a3c.png)
